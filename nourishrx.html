@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NourishRx — Investor Deck 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green: #1D9E75;
+    --green-light: #E1F5EE;
+    --green-mid: #5DCAA5;
+    --green-dark: #085041;
+    --slate: #2C2C2A;
+    --slate-mid: #5F5E5A;
+    --slate-light: #F1EFE8;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --teal: #0F6E56;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FAFAF8;
+    color: var(--slate);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--green-dark);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .nav-logo span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--slate-mid);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-links {
+    display: flex; gap: 1.5rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--slate-mid);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 4rem 4rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: var(--green-light);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+  .hero-text { position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--teal);
+    font-size: 0.72rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.08;
+    color: var(--slate);
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green);
+  }
+  .hero-sub {
+    font-size: 1rem; color: var(--slate-mid);
+    max-width: 440px; margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem;
+  }
+  .tag {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
+    font-size: 0.78rem; font-weight: 500;
+    color: var(--slate-mid);
+    padding: 4px 12px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--green);
+    color: white;
+    font-size: 0.88rem; font-weight: 600;
+    padding: 12px 24px; border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .hero-cta:hover { background: var(--teal); transform: translateY(-1px); }
+
+  .hero-stats {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-2px); }
+  .stat-card .val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; color: var(--green-dark);
+    line-height: 1;
+  }
+  .stat-card .label {
+    font-size: 0.78rem; color: var(--slate-mid); font-weight: 500;
+    margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .stat-card .note {
+    font-size: 0.72rem; color: var(--green-mid);
+    margin-top: 6px;
+  }
+  .stat-card.accent { background: var(--green-dark); }
+  .stat-card.accent .val { color: #9FE1CB; }
+  .stat-card.accent .label { color: #5DCAA5; }
+  .stat-card.accent .note { color: #9FE1CB; }
+
+  /* SECTIONS */
+  section { padding: 5rem 4rem; }
+  section:nth-child(even) { background: #F5F4F0; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--green);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.1; color: var(--slate);
+    margin-bottom: 1rem;
+    max-width: 600px;
+  }
+  .section-sub {
+    color: var(--slate-mid); font-size: 1rem;
+    max-width: 560px; line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+
+  /* PROBLEM */
+  .problem-flow {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; margin: 2.5rem 0;
+    position: relative;
+  }
+  .pf-step {
+    background: white;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-right: none;
+    position: relative;
+  }
+  .pf-step:last-child { border-right: 1px solid rgba(0,0,0,0.07); }
+  .pf-step:first-child { border-radius: 12px 0 0 12px; }
+  .pf-step:last-child { border-radius: 0 12px 12px 0; background: #FEF2F1; border-color: #F09595; }
+  .pf-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+  .pf-step h4 { font-size: 0.82rem; font-weight: 600; color: var(--slate); margin-bottom: 0.5rem; }
+  .pf-step p { font-size: 0.78rem; color: var(--slate-mid); line-height: 1.5; }
+  .pf-arrow {
+    position: absolute; right: -12px; top: 50%;
+    transform: translateY(-50%);
+    width: 24px; height: 24px;
+    background: var(--slate-light);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.6rem; color: var(--slate-mid);
+    z-index: 1;
+  }
+  .gap-callout {
+    background: var(--green-dark);
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    display: flex; align-items: center; gap: 2rem;
+  }
+  .gap-stat { text-align: center; }
+  .gap-stat .big {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: #9FE1CB;
+    line-height: 1;
+  }
+  .gap-stat small { font-size: 0.78rem; color: #9FE1CB; opacity: 0.8; display: block; margin-top: 4px; }
+  .gap-text h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .gap-text p { font-size: 0.85rem; opacity: 0.85; line-height: 1.6; max-width: 400px; }
+  .gap-divider { width: 1px; height: 80px; background: rgba(255,255,255,0.2); }
+
+  /* SOLUTION */
+  .solution-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 1rem; margin-top: 1.5rem;
+  }
+  .sol-card {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .sol-card .sol-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; margin-bottom: 1rem;
+  }
+  .sol-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .sol-card p { font-size: 0.8rem; color: var(--slate-mid); line-height: 1.55; }
+
+  /* MARKET */
+  .market-rings {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; margin: 2rem 0;
+    position: relative;
+  }
+  .ring-container {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+    position: relative;
+  }
+  .market-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem; margin-top: 1.5rem;
+  }
+  .mkt-card {
+    border-radius: 12px; padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.07);
+    position: relative; overflow: hidden;
+  }
+  .mkt-card.tam { background: var(--green-dark); color: white; }
+  .mkt-card.sam { background: var(--green); color: white; }
+  .mkt-card.som { background: white; }
+  .mkt-card .mkt-label {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; opacity: 0.7; margin-bottom: 0.5rem;
+  }
+  .mkt-card .mkt-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; line-height: 1; margin-bottom: 0.5rem;
+  }
+  .mkt-card.som .mkt-val { color: var(--green-dark); }
+  .mkt-card .mkt-desc { font-size: 0.78rem; opacity: 0.85; line-height: 1.5; }
+  .mkt-card.som .mkt-desc { color: var(--slate-mid); }
+  .mkt-card.som .mkt-label { color: var(--green); opacity: 1; }
+
+  /* UNIT ECON */
+  .ue-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; margin-bottom: 2rem;
+  }
+  .ue-card {
+    background: white; border-radius: 12px;
+    padding: 1.25rem; border: 1px solid rgba(0,0,0,0.07);
+    text-align: center;
+  }
+  .ue-card .ue-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--green-dark);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .ue-card .ue-label {
+    font-size: 0.72rem; font-weight: 600; color: var(--slate-mid);
+    text-transform: uppercase; letter-spacing: 0.07em;
+  }
+  .ue-card .ue-note { font-size: 0.7rem; color: var(--green-mid); margin-top: 4px; }
+  .ue-card.highlight {
+    background: var(--green-dark); border-color: transparent;
+  }
+  .ue-card.highlight .ue-val { color: #9FE1CB; }
+  .ue-card.highlight .ue-label { color: #5DCAA5; }
+  .ue-card.highlight .ue-note { color: #9FE1CB; }
+
+  /* PROJECTIONS */
+  .proj-table {
+    width: 100%; border-collapse: collapse;
+    background: white; border-radius: 12px;
+    overflow: hidden; border: 1px solid rgba(0,0,0,0.07);
+  }
+  .proj-table thead tr { background: var(--green-dark); }
+  .proj-table th {
+    text-align: left; padding: 12px 16px;
+    font-size: 0.78rem; font-weight: 600;
+    color: #9FE1CB; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .proj-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem; color: var(--slate);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+  .proj-table tr:last-child td { border-bottom: none; }
+  .proj-table tbody tr:hover { background: var(--green-light); }
+  .proj-table .metric { font-weight: 600; color: var(--slate); }
+  .proj-table .positive { color: var(--green); font-weight: 600; }
+  .proj-table .negative { color: #A32D2D; }
+  .proj-table .highlight-row td { background: var(--green-light); font-weight: 600; }
+
+  /* VALUATION */
+  .val-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; margin-bottom: 1.5rem;
+  }
+  .val-card {
+    background: white; border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px; padding: 1.5rem;
+  }
+  .val-card.selected {
+    border-color: var(--green);
+    border-width: 2px;
+    background: var(--green-light);
+  }
+  .val-card .v-method { font-size: 0.72rem; font-weight: 600; color: var(--slate-mid); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+  .val-card.selected .v-method { color: var(--teal); }
+  .val-card .v-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: var(--slate);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .val-card.selected .v-val { color: var(--green-dark); }
+  .val-card .v-logic { font-size: 0.75rem; color: var(--slate-mid); line-height: 1.5; }
+  .selected-badge {
+    display: inline-block; background: var(--green); color: white;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 8px; border-radius: 10px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* DEAL */
+  .deal-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem; align-items: start;
+  }
+  .deal-terms {
+    background: var(--green-dark); border-radius: 16px;
+    padding: 2rem; color: white;
+  }
+  .deal-terms h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #5DCAA5; margin-bottom: 1.25rem; }
+  .term-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .term-row:last-child { border-bottom: none; }
+  .term-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .term-val { font-size: 0.9rem; font-weight: 600; color: white; }
+  .term-val.accent { color: #9FE1CB; }
+
+  .use-of-funds { background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 16px; padding: 2rem; }
+  .use-of-funds h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 1.25rem; }
+  .fund-row { margin-bottom: 1rem; }
+  .fund-row .fund-label { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 500; margin-bottom: 5px; }
+  .fund-row .fund-label span:last-child { color: var(--slate-mid); }
+  .fund-bar { height: 8px; background: var(--green-light); border-radius: 4px; overflow: hidden; }
+  .fund-bar-fill { height: 100%; background: var(--green); border-radius: 4px; transition: width 0.8s ease; }
+
+  /* EXIT */
+  .timeline {
+    position: relative; padding: 1rem 0;
+    margin: 2rem 0;
+  }
+  .timeline::before {
+    content: ''; position: absolute;
+    left: 24px; top: 0; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--green-light), var(--green), var(--green-dark));
+  }
+  .tl-item {
+    display: flex; gap: 1.5rem;
+    margin-bottom: 1.5rem; position: relative;
+  }
+  .tl-dot {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: white; border: 2px solid var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 700; color: var(--green);
+    flex-shrink: 0; z-index: 1;
+  }
+  .tl-dot.filled { background: var(--green); color: white; }
+  .tl-content { padding-top: 8px; }
+  .tl-content h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+  .tl-content p { font-size: 0.8rem; color: var(--slate-mid); line-height: 1.5; }
+  .tl-content .tl-badge {
+    display: inline-block; background: var(--amber-light);
+    color: var(--amber); font-size: 0.7rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 8px; margin-top: 4px;
+  }
+  .return-box {
+    background: var(--amber-light); border: 1px solid var(--amber);
+    border-radius: 12px; padding: 1.5rem; margin-top: 1rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .return-box .ret-val {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; color: var(--amber); line-height: 1;
+  }
+  .return-box .ret-text h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 4px; }
+  .return-box .ret-text p { font-size: 0.78rem; color: var(--slate-mid); }
+
+  /* TEAM */
+  .team-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1rem; margin-top: 1.5rem;
+  }
+  .team-card {
+    background: white; border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 12px; padding: 1.25rem; text-align: center;
+  }
+  .team-avatar {
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--green-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: 700; color: var(--teal);
+    margin: 0 auto 0.75rem;
+  }
+  .team-card h4 { font-size: 0.85rem; font-weight: 600; margin-bottom: 2px; }
+  .team-card p { font-size: 0.72rem; color: var(--green); font-weight: 500; }
+
+  /* FOOTER */
+  footer {
+    background: var(--slate);
+    color: rgba(255,255,255,0.7);
+    padding: 2.5rem 4rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+  footer .footer-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem; color: white;
+  }
+  footer p { max-width: 400px; line-height: 1.5; opacity: 0.7; }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeIn 0.6s ease forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Staggered delays */
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.3s; }
+  .delay-4 { animation-delay: 0.4s; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 5rem 2rem 3rem; }
+    .hero::before { display: none; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 3rem 2rem; }
+    .problem-flow { grid-template-columns: 1fr 1fr; }
+    .market-row, .ue-grid, .val-grid { grid-template-columns: 1fr 1fr; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .deal-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    🌿 NourishRx <span>Seed Deck · 2026</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#economics">Economics</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#deal">Deal Terms</a></li>
+    <li><a href="#exit">Exit</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text fade-in">
+    <div class="hero-badge">India · FoodTech · HealthTech · Seed 2026</div>
+    <h1>The <em>prescription</em><br>that feeds you.</h1>
+    <p class="hero-sub">NourishRx operationalises the doctor's diet plan into ready-to-eat, condition-specific meals for India's 123 million chronic-condition patients.</p>
+    <div class="hero-tags">
+      <span class="tag">PCOD</span>
+      <span class="tag">Type 2 Diabetes</span>
+      <span class="tag">Gut Health</span>
+      <span class="tag">NCR Launch</span>
+      <span class="tag">SAFE Note</span>
+    </div>
+    <a href="#problem" class="hero-cta">View the pitch →</a>
+  </div>
+  <div class="hero-stats fade-in delay-2">
+    <div class="stat-card fade-in delay-1">
+      <div class="val">Rs. 16L</div>
+      <div class="label">Seed Raise</div>
+      <div class="note">SAFE Note · YC Template</div>
+    </div>
+    <div class="stat-card fade-in delay-2">
+      <div class="val">Rs. 1.5 Cr</div>
+      <div class="label">Valuation Cap</div>
+      <div class="note">3 methods converge</div>
+    </div>
+    <div class="stat-card accent fade-in delay-3">
+      <div class="val">~8.8×</div>
+      <div class="label">Seed Return</div>
+      <div class="note">Conservative scenario, Y5 exit</div>
+    </div>
+    <div class="stat-card fade-in delay-4">
+      <div class="val">10.7%</div>
+      <div class="label">Investor Equity</div>
+      <div class="note">At SAFE conversion, Series A</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="section-label">The Problem</div>
+  <h2 class="section-title">A diagnosis without a solution</h2>
+  <p class="section-sub">103 million diabetics + 20 million PCOD patients in India all receive the same thing from their doctor — a PDF diet plan. 78% abandon it within 2 weeks.</p>
+
+  <div class="problem-flow">
+    <div class="pf-step">
+      <div class="pf-icon">🏥</div>
+      <h4>Doctor Visit</h4>
+      <p>Priya, 28, working professional. Diagnosed with PCOD.</p>
+      <div class="pf-arrow">→</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-icon">📄</div>
+      <h4>PDF Diet Plan</h4>
+      <p>2-page generic diet chart. Overwhelming. No structure.</p>
+      <div class="pf-arrow">→</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-icon">😰</div>
+      <h4>Reality Hits</h4>
+      <p>No time to cook. No compliant food available. Plan abandoned.</p>
+      <div class="pf-arrow">→</div>
+    </div>
+    <div class="pf-step">
+      <div class="pf-icon">📉</div>
+      <h4>Condition Worsens</h4>
+      <p>Without dietary management, PCOD/diabetes symptoms escalate.</p>
+    </div>
+  </div>
+
+  <div class="gap-callout">
+    <div class="gap-stat">
+      <div class="big">78%</div>
+      <small>abandon diet plan<br>within 2 weeks</small>
+    </div>
+    <div class="gap-divider"></div>
+    <div class="gap-stat">
+      <div class="big">7%</div>
+      <small>of Indian metros have<br>condition-specific ready meals</small>
+    </div>
+    <div class="gap-divider"></div>
+    <div class="gap-text">
+      <h3>Between the doctor's PDF and the patient's plate — there is nothing.</h3>
+      <p>No product. No service. No bridge. For 123M chronic-condition patients in India, the diet plan exists only on paper. NourishRx closes this gap.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution" style="background:#FAFAF8;">
+  <div class="section-label">The Solution</div>
+  <h2 class="section-title">The operating system for your diet plan</h2>
+  <p class="section-sub">Precision-portioned, condition-specific meals — 12 PM lunch + 7 PM dinner — delivered daily by our own riders. Food IS the prescription.</p>
+
+  <div class="solution-grid">
+    <div class="sol-card">
+      <div class="sol-icon">🩺</div>
+      <h4>Condition-Specific Menus</h4>
+      <p>PCOD, Type 2 Diabetes, and Gut Health — each with a dedicated meal plan designed by clinical dietitians. Not generic "healthy eating."</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">⚖️</div>
+      <h4>Precision Portioned Kits</h4>
+      <p>Central kitchen weighs and packs every ingredient. Macro targets are locked before the meal is cooked. Accuracy is non-negotiable.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">🚴</div>
+      <h4>Fixed Delivery Windows</h4>
+      <p>12 PM lunch, 7 PM dinner. In-house riders. Zero platform dependency — we capture 100% of revenue, no commission leak.</p>
+    </div>
+    <div class="sol-card">
+      <div class="sol-icon">📊</div>
+      <h4>Monthly Dietitian Check-in</h4>
+      <p>Progress reviewed monthly. Plan adjusted. Subscription renewed because health outcomes keep improving. This is why churn stays low.</p>
+    </div>
+  </div>
+
+  <div style="background: var(--green-light); border-radius: 12px; padding: 1.5rem 2rem; margin-top: 1.5rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+    <div style="font-size: 0.85rem; color: var(--teal); font-weight: 600; max-width: 300px;">Standard Plan<br><span style="font-size: 1.4rem; font-family: 'DM Serif Display'; color: var(--green-dark);">Rs. 3,500/mo</span><br><span style="font-weight: 400; color: var(--slate-mid);">2 meals/day · 5 days/week · monthly dietitian review</span></div>
+    <div style="width: 1px; height: 60px; background: var(--green-mid); opacity: 0.4;"></div>
+    <div style="font-size: 0.85rem; color: var(--teal); font-weight: 600; max-width: 300px;">Premium Plan<br><span style="font-size: 1.4rem; font-family: 'DM Serif Display'; color: var(--green-dark);">Rs. 4,999/mo</span><br><span style="font-weight: 400; color: var(--slate-mid);">2 meals/day · 7 days/week · bi-weekly review + health tracking</span></div>
+    <div style="width: 1px; height: 60px; background: var(--green-mid); opacity: 0.4;"></div>
+    <div style="font-size: 0.85rem; color: var(--slate-mid);">Blended ARPU<br><span style="font-size: 1.4rem; font-family: 'DM Serif Display'; color: var(--slate);">Rs. 4,100/mo</span><br><span style="color: var(--green); font-weight: 500;">40% premium mix</span></div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="section-label">Market Opportunity</div>
+  <h2 class="section-title">A medical need that never goes away</h2>
+  <p class="section-sub">The India therapeutic nutrition market is vast, underserved, and structurally recurring — chronic conditions require lifelong dietary management.</p>
+
+  <div class="market-row">
+    <div class="mkt-card tam">
+      <div class="mkt-label">TAM</div>
+      <div class="mkt-val">Rs. 2,800 Cr</div>
+      <div class="mkt-desc">India Therapeutic Food Market — 103M diabetics + 20M PCOD patients + gut health segment</div>
+    </div>
+    <div class="mkt-card sam">
+      <div class="mkt-label">SAM</div>
+      <div class="mkt-val">Rs. 420 Cr</div>
+      <div class="mkt-desc">NCR working professionals aged 25–45 — urban, dual-income, diagnosed, unable to cook to prescription</div>
+    </div>
+    <div class="mkt-card som">
+      <div class="mkt-label">SOM · Year 3</div>
+      <div class="mkt-val">Rs. 18 Cr</div>
+      <div class="mkt-desc">484 subscribers across 5 NCR zones at Rs. 4,100/mo = Rs. 2.38 Cr ARR serviceable</div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT ECONOMICS -->
+<section id="economics" style="background:#FAFAF8;">
+  <div class="section-label">Unit Economics</div>
+  <h2 class="section-title">Built to be sticky by design</h2>
+  <p class="section-sub">With sub-1-month CAC payback and a blended LTV:CAC of 11.9× — well above the 3–5× India D2C benchmark — the unit economics are structurally strong.</p>
+
+  <div class="ue-grid">
+    <div class="ue-card">
+      <div class="ue-val">Rs. 1,060</div>
+      <div class="ue-label">Blended CAC</div>
+      <div class="ue-note">Meta 40% · Dietitian 35% · Referral 25%</div>
+    </div>
+    <div class="ue-card">
+      <div class="ue-val">Rs. 12,658</div>
+      <div class="ue-label">Blended LTV</div>
+      <div class="ue-note">6.2-month base · chronic patients likely 12–24 mo</div>
+    </div>
+    <div class="ue-card highlight">
+      <div class="ue-val">11.9×</div>
+      <div class="ue-label">LTV:CAC Ratio</div>
+      <div class="ue-note">vs 3–5× India D2C benchmark</div>
+    </div>
+    <div class="ue-card">
+      <div class="ue-val">49.8%</div>
+      <div class="ue-label">Gross Margin</div>
+      <div class="ue-note">Improves with delivery density at scale</div>
+    </div>
+  </div>
+
+  <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.5rem 2rem;">
+    <div style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem;">Why subscribers don't churn</div>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink:0;">♾️</div>
+        <div><div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 2px;">Chronic Conditions</div><div style="font-size: 0.78rem; color: var(--slate-mid);">PCOD & diabetes require lifelong dietary management. There is no "fixed and done."</div></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink:0;">📈</div>
+        <div><div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 2px;">Visible Health Outcomes</div><div style="font-size: 0.78rem; color: var(--slate-mid);">Blood sugar stabilises, PCOD symptoms reduce — users who see results don't leave.</div></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink:0;">💳</div>
+        <div><div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 2px;">Maintenance Plans</div><div style="font-size: 0.78rem; color: var(--slate-mid);">Post-improvement subscribers shift to Rs. 2,500/mo tier — reduced price removes the churn trigger.</div></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; background: var(--green-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; flex-shrink:0;">👨‍👩‍👧</div>
+        <div><div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 2px;">Family Conversion</div><div style="font-size: 0.78rem; color: var(--slate-mid);">PCOD subscriber's diabetic parent becomes a customer. Household stickiness extends LTV.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section id="financials">
+  <div class="section-label">Financial Projections</div>
+  <h2 class="section-title">Break-even by Month 24</h2>
+  <p class="section-sub">Conservative 3-year model with Y1 losses fully funded by seed round. Profitable by Year 3 at Rs. 58.2L EBITDA.</p>
+
+  <table class="proj-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Year 1</th>
+        <th>Year 2</th>
+        <th>Year 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="metric">Active Subscribers (EoY)</td>
+        <td>60</td>
+        <td>208</td>
+        <td>484</td>
+      </tr>
+      <tr class="highlight-row">
+        <td class="metric">Annual Revenue</td>
+        <td>Rs. 16.6L</td>
+        <td>Rs. 75.6L</td>
+        <td>Rs. 1.63 Cr</td>
+      </tr>
+      <tr>
+        <td class="metric">ARR Run Rate (EoY)</td>
+        <td>Rs. 29.5L</td>
+        <td>Rs. 1.02 Cr</td>
+        <td>Rs. 2.38 Cr</td>
+      </tr>
+      <tr>
+        <td class="metric">Gross Margin</td>
+        <td>49.6%</td>
+        <td>49.6%</td>
+        <td class="positive">51.7%</td>
+      </tr>
+      <tr class="highlight-row">
+        <td class="metric">EBITDA</td>
+        <td class="negative">(Rs. 7.4L)</td>
+        <td class="positive">Rs. 21.05L</td>
+        <td class="positive">Rs. 58.2L</td>
+      </tr>
+      <tr>
+        <td class="metric">EBITDA Margin</td>
+        <td class="negative">(44.6%)</td>
+        <td class="positive">27.9%</td>
+        <td class="positive">35.6%</td>
+      </tr>
+      <tr>
+        <td class="metric">Monthly Burn</td>
+        <td>Rs. 1.30L</td>
+        <td>Rs. 1.60L</td>
+        <td>Rs. 2.20L</td>
+      </tr>
+      <tr>
+        <td class="metric">Status</td>
+        <td>~12 mo runway</td>
+        <td style="color: var(--amber); font-weight: 600;">Near break-even</td>
+        <td class="positive">Profitable</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="background: var(--green-light); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem; font-size: 0.82rem; color: var(--teal);">
+    <strong>Key milestones this round:</strong> Launch Noida Sector 18 · 8 Day-1 subscribers from dietitian pipeline · 60 subscribers by Month 12 · Activate Zone 2 by Month 7 · Series A position at Rs. 90.7L ARR
+  </div>
+</section>
+
+<!-- VALUATION -->
+<section id="valuation" style="background:#FAFAF8;">
+  <div class="section-label">Valuation</div>
+  <h2 class="section-title">Rs. 1.5 Cr — defensible by 3 methods</h2>
+  <p class="section-sub">Three independent valuation approaches converge on a midpoint that anchors the SAFE cap at a fair, investor-friendly entry point.</p>
+
+  <div class="val-grid">
+    <div class="val-card">
+      <div class="v-method">VC Return Method</div>
+      <div class="v-val">Rs. 0.86 Cr</div>
+      <div class="v-logic">600 subs (Y5) × Rs. 4,200 × 12 × 3.5× = Rs. 10.58 Cr exit ÷ 10× required return → Rs. 0.86 Cr pre-money</div>
+    </div>
+    <div class="val-card">
+      <div class="v-method">ARR Multiple</div>
+      <div class="v-val">Rs. 1.18 Cr</div>
+      <div class="v-logic">EoY Y1 ARR Rs. 39.4L × 3× conservative India D2C seed benchmark = Rs. 1.18 Cr pre-money</div>
+    </div>
+    <div class="val-card selected">
+      <div class="selected-badge">✓ Selected</div>
+      <div class="v-method">SAFE Cap Selected</div>
+      <div class="v-val">Rs. 1.5 Cr</div>
+      <div class="v-logic">Midpoint of Rs. 1.25–1.75 Cr range. Scorecard method: +10% strong team, +15% niche, -10% early-stage risk. Investor: ~10.7% equity at conversion.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEAL TERMS -->
+<section id="deal">
+  <div class="section-label">Deal Structure</div>
+  <h2 class="section-title">Simple, founder-friendly SAFE terms</h2>
+  <p class="section-sub">YC standard SAFE — no dilution until Series A, full voting control with founders, investor protected by MFN clause and pro-rata rights.</p>
+
+  <div class="deal-grid">
+    <div class="deal-terms">
+      <h3>SAFE Note Terms</h3>
+      <div class="term-row">
+        <span class="term-label">Instrument</span>
+        <span class="term-val">SAFE Note (YC Template)</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Raise</span>
+        <span class="term-val accent">Rs. 16 Lakhs</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Valuation Cap</span>
+        <span class="term-val accent">Rs. 1.5 Crore</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Discount at Series A</span>
+        <span class="term-val">20%</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Conversion Trigger</span>
+        <span class="term-val">Series A priced round</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Current Dilution</span>
+        <span class="term-val">None — converts at Series A</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Voting Rights</span>
+        <span class="term-val">100% founders until conversion</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Investor Rights</span>
+        <span class="term-val">MFN · Pro-rata · Info rights</span>
+      </div>
+      <div class="term-row">
+        <span class="term-label">Investor Equity (Post-Conversion)</span>
+        <span class="term-val accent">~10.7%</span>
+      </div>
+    </div>
+
+    <div class="use-of-funds">
+      <h3>Use of Rs. 16L Proceeds</h3>
+      <div class="fund-row">
+        <div class="fund-label"><span>Ops Losses Y1</span><span>Rs. 5L · 31.25%</span></div>
+        <div class="fund-bar"><div class="fund-bar-fill" style="width: 31.25%;"></div></div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-label"><span>Working Capital</span><span>Rs. 4L · 25%</span></div>
+        <div class="fund-bar"><div class="fund-bar-fill" style="width: 25%;"></div></div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-label"><span>Kitchen Setup</span><span>Rs. 3L · 18.75%</span></div>
+        <div class="fund-bar"><div class="fund-bar-fill" style="width: 18.75%;"></div></div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-label"><span>Prep Equipment</span><span>Rs. 2L · 12.5%</span></div>
+        <div class="fund-bar"><div class="fund-bar-fill" style="width: 12.5%;"></div></div>
+      </div>
+      <div class="fund-row">
+        <div class="fund-label"><span>Contingency</span><span>Rs. 2L · 12.5%</span></div>
+        <div class="fund-bar"><div class="fund-bar-fill" style="width: 12.5%;"></div></div>
+      </div>
+      <div style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--slate-mid); line-height: 1.5;">
+        Runway: ~12 months. Y1 loss fully covered. Near break-even by Month 18–24.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXIT & RETURNS -->
+<section id="exit" style="background:#FAFAF8;">
+  <div class="section-label">Exit Opportunity & Returns</div>
+  <h2 class="section-title">~8.8× seed return on conservative exit</h2>
+  <p class="section-sub">Strategic acquirers across hospital chains, food platforms, pharma, and D2C rollups have clear motivation to acquire a clinical nutrition brand with 750+ proven subscribers.</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot filled">Y1</div>
+        <div class="tl-content">
+          <h4>Seed · Launch</h4>
+          <p>60 subs · Rs. 29.5L ARR · Near breakeven</p>
+          <span class="tl-badge">This raise</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot filled">Y2</div>
+        <div class="tl-content">
+          <h4>Series A · NCR-wide</h4>
+          <p>208 subs · Rs. 1.02 Cr ARR · Expansion across 5 zones</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Y3</div>
+        <div class="tl-content">
+          <h4>Scale · Franchise Model Live</h4>
+          <p>484 subs · Rs. 2.38 Cr ARR · EBITDA positive at 35.6%</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">Y5</div>
+        <div class="tl-content">
+          <h4>Exit Window</h4>
+          <p>750+ subs · Rs. 11 Cr ARR · Multi-city · Strategic M&amp;A</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="return-box">
+        <div class="ret-val">~8.8×</div>
+        <div class="ret-text">
+          <h4>Seed Investor Return</h4>
+          <p>Rs. 16L at 10.7% equity × Rs. 11 Cr exit at 3.5× revenue = Rs. 1.17 Cr return. Conservative scenario.</p>
+        </div>
+      </div>
+
+      <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.25rem 1.5rem; margin-top: 1rem;">
+        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-mid); margin-bottom: 0.75rem;">Strategic Acquirer Landscape</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 0.82rem; display: flex; gap: 8px;"><span>🏥</span><span><strong>Hospital chains</strong> (Apollo, Max) — clinical nutrition arm</span></div>
+          <div style="font-size: 0.82rem; display: flex; gap: 8px;"><span>🛵</span><span><strong>Food platforms</strong> (Swiggy, Zomato) — health vertical</span></div>
+          <div style="font-size: 0.82rem; display: flex; gap: 8px;"><span>💊</span><span><strong>Pharma / wellness</strong> (Abbott, Nestlé Health) — India diet stack</span></div>
+          <div style="font-size: 0.82rem; display: flex; gap: 8px;"><span>🌏</span><span><strong>D2C rollup</strong> — pan-India therapeutic food platform</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-label">The Team</div>
+  <h2 class="section-title">7 co-founders, every function covered</h2>
+  <p class="section-sub">A rare founding team with domain experts across every critical function — from clinical nutrition to technology and sales.</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">CEO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Executive Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CMO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Marketing Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CFO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Financial Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">COO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Operating Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CTO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Technology Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CNO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Nutrition Officer</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CSO</div>
+      <h4>Co-Founder</h4>
+      <p>Chief Sales Officer</p>
+    </div>
+    <div class="team-card" style="background: var(--green-light); border-color: var(--green-mid);">
+      <div class="team-avatar" style="background: var(--green); color: white;">3</div>
+      <h4>Dietitian Partners</h4>
+      <p style="color: var(--teal);">~400 active patients in pipeline</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section style="background:#FAFAF8; padding: 4rem;">
+  <div class="section-label">Traction & Validation</div>
+  <h2 class="section-title">Proven before the first rupee raised</h2>
+
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+    <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem;">
+      <div style="font-size: 1.5rem;">💬</div>
+      <div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px;">30 Depth Interviews</div>
+        <p style="font-size: 0.82rem; color: var(--slate-mid);">NCR working professionals (25–40) with PCOD or diabetes. 23 of 30 said existing services don't serve their condition.</p>
+      </div>
+    </div>
+    <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem;">
+      <div style="font-size: 1.5rem;">🍱</div>
+      <div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px;">Pilot Meal Testing</div>
+        <p style="font-size: 0.82rem; color: var(--slate-mid);">12 sample menus tested with 8 volunteers. Average satisfaction 4.3/5 on taste; 100% accuracy on macro targets.</p>
+      </div>
+    </div>
+    <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem;">
+      <div style="font-size: 1.5rem;">👩‍⚕️</div>
+      <div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px;">3 Dietitian Partners</div>
+        <p style="font-size: 0.82rem; color: var(--slate-mid);">Referral agreements with 3 NCR dietitians covering ~400 active patients. Pipeline for first 25 subscribers secured.</p>
+      </div>
+    </div>
+    <div style="background: white; border: 1px solid rgba(0,0,0,0.07); border-radius: 12px; padding: 1.5rem; display: flex; gap: 1rem;">
+      <div style="font-size: 1.5rem;">📍</div>
+      <div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--green); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 4px;">Zone Density Mapped</div>
+        <p style="font-size: 0.82rem; color: var(--slate-mid);">Subscriber density analysis across Noida Sectors 18, 50, 62. 90+ potential subscribers identified in target launch zone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section style="background: var(--green-dark); padding: 5rem 4rem; text-align: center;">
+  <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5DCAA5; margin-bottom: 1rem;">Investment Thesis</div>
+  <div style="font-family: 'DM Serif Display', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); color: white; max-width: 720px; margin: 0 auto 2rem; line-height: 1.4;">
+    "NourishRx operationalises the doctor's diet plan into ready-to-eat meals for India's 123M+ chronic-condition patients — a sticky, recurring-revenue model with sub-1-month CAC payback serving a medical need that <em style="font-style: italic; color: #9FE1CB;">never goes away.</em>"
+  </div>
+  <div style="display: inline-flex; gap: 2rem; flex-wrap: wrap; justify-content: center;">
+    <div style="text-align: center;">
+      <div style="font-size: 1.5rem; font-family: 'DM Serif Display'; color: #9FE1CB;">Rs. 16L</div>
+      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.07em;">Raise</div>
+    </div>
+    <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.5rem; font-family: 'DM Serif Display'; color: #9FE1CB;">Rs. 1.5 Cr</div>
+      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.07em;">Valuation Cap</div>
+    </div>
+    <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.5rem; font-family: 'DM Serif Display'; color: #9FE1CB;">~8.8×</div>
+      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.07em;">Seed Return</div>
+    </div>
+    <div style="width: 1px; background: rgba(255,255,255,0.15);"></div>
+    <div style="text-align: center;">
+      <div style="font-size: 1.5rem; font-family: 'DM Serif Display'; color: #9FE1CB;">10.7%</div>
+      <div style="font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.07em;">Investor Equity</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo">🌿 NourishRx</div>
+    <p style="margin-top: 8px;">India's First Condition-Specific Meal Delivery for Working Professionals<br>NCR Launch · Seed 2026 · SAFE Note · Rs. 16L Raise</p>
+  </div>
+  <p>Deck prepared for Entrepreneurial Finance presentation. All projections are estimates based on conservative assumptions. SAFE Note on YC standard template.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.sol-card, .mkt-card, .ue-card, .val-card, .team-card, .stat-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

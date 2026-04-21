@@ -1454,7 +1454,7 @@ function addMealToCart(id) {
 }
 
 function addPlanToCart(name, price) {
-  const icons = { 'Essentials':'🥗', 'Full Day':'🍱', 'Clinical Plus':'🧑‍⚕️' };
+  const icons = { 'Essentials':'🥗', 'Full Day':'🍱'};
   const existing = cart.find(c => c.type === 'plan');
   if (existing) {
     existing.name = name; existing.price = price; existing.emoji = icons[name];

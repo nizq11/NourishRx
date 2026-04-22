@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NourishRx — Eat for Your Condition</title>
+<title>NourishRx — Meal Prep for Your Condition</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -838,7 +838,7 @@ footer a:hover { color: var(--green-mid); }
     <div class="cart-empty" id="cartEmpty">
       <div class="empty-icon">🍽️</div>
       <p><strong>Your cart is empty</strong></p>
-      <p style="font-size:0.82rem;margin-top:6px;color:var(--slate-mid)">Add a meal plan or individual meal to get started.</p>
+      <p style="font-size:0.82rem;margin-top:6px;color:var(--slate-mid)">Add a prep plan or individual kit to get started.</p>
     </div>
   </div>
   <div class="cart-footer" id="cartFooter" style="display:none">
@@ -853,8 +853,8 @@ footer a:hover { color: var(--green-mid); }
 <!-- SIGNUP MODAL -->
 <div class="modal-overlay" id="signupModal">
   <div class="modal-box">
-    <h3>Start Your Journey 🌿</h3>
-    <p>Tell us about your condition and we'll create a personalised meal plan tailored exactly for you.</p>
+    <h3>Start Your Prep Journey 🌿</h3>
+    <p>Tell us about your condition and we'll design a weekly meal prep kit tailored exactly to your dietitian's guidelines.</p>
     <div class="form-field">
       <label>Your Name</label>
       <input type="text" placeholder="e.g. Priya Sharma" id="signupName">
@@ -887,7 +887,7 @@ footer a:hover { color: var(--green-mid); }
     </div>
     <div class="modal-actions">
       <button class="btn-modal-cancel" onclick="closeModal('signupModal')">Maybe Later</button>
-      <button class="btn-modal-primary" onclick="handleSignup()">Get My Plan →</button>
+      <button class="btn-modal-primary" onclick="handleSignup()">Get My Prep Kit →</button>
     </div>
   </div>
 </div>
@@ -896,18 +896,16 @@ footer a:hover { color: var(--green-mid); }
 <div class="modal-overlay" id="checkoutModal">
   <div class="modal-box">
     <h3>Complete Your Order ✨</h3>
-    <p>Your personalised meal plan is just one step away. We'll confirm your delivery slot within 24 hours.</p>
+    <p>Your personalised meal prep kit is just one step away. We'll confirm your weekly dispatch slot within 24 hours.</p>
     <div class="form-field">
       <label>Delivery Address</label>
       <input type="text" placeholder="House/Flat No., Street, Sector" id="checkoutAddr">
     </div>
     <div class="form-field">
-      <label>Preferred Delivery Time</label>
+      <label>Preferred Kit Delivery Day</label>
       <select>
-        <option>7:00 AM – 8:00 AM (Breakfast delivery)</option>
-        <option>12:00 PM – 1:00 PM (Lunch delivery)</option>
-        <option>7:00 PM – 8:00 PM (Dinner delivery)</option>
-        <option>All-day delivery (2 boxes)</option>
+        <option>Friday (prep over the weekend)</option>
+        <option>Saturday (prep Sunday for the week)</option>
       </select>
     </div>
     <div class="form-field">
@@ -935,7 +933,7 @@ footer a:hover { color: var(--green-mid); }
     <li><a href="#how-it-works">How It Works</a></li>
     <li><a href="#plans">Plans</a></li>
     <li><a href="#menu">Menu</a></li>
-    <li><a href="#my-plan">My Plan</a></li>
+    <li><a href="#my-plan">My Prep Schedule</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <div class="nav-actions">
@@ -952,10 +950,10 @@ footer a:hover { color: var(--green-mid); }
   <div class="hero-left">
     <div class="hero-badge">
       <span class="dot"></span>
-      Now delivering in NCR · Noida Sectors 18, 50, 62
+      Now delivering in NCR · Weekly Meal Prep Kits · Noida & Greater Noida
     </div>
-    <h1>Food that <em>heals</em><br>your condition.</h1>
-    <p class="hero-sub">Finally, meals built around your doctor's diet plan — not generic calories. Ready-to-eat, condition-specific, delivered fresh to your door daily.</p>
+    <h1>Meal prep built<br>around your <em>condition.</em></h1>
+    <p class="hero-sub">Finally, a weekly meal prep kit designed around your doctor's diet plan — pre-portioned, condition-specific, delivered fresh. Cook in under 20 minutes. Eat exactly right.</p>
     <div class="hero-conditions">
       <span class="condition-tag">PCOD / PCOS</span>
       <span class="condition-tag">Type 2 Diabetes</span>
@@ -964,7 +962,7 @@ footer a:hover { color: var(--green-mid); }
       <span class="condition-tag">Heart Health</span>
     </div>
     <div class="hero-ctas">
-      <button class="btn-primary" onclick="openModal('signupModal')">Get My Meal Plan →</button>
+      <button class="btn-primary" onclick="openModal('signupModal')">Get My Meal Prep Plan →</button>
       <button class="btn-ghost" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
     </div>
   </div>
@@ -972,8 +970,8 @@ footer a:hover { color: var(--green-mid); }
     <div class="meal-preview-card reveal">
       <div class="meal-card-top">
         <div>
-          <div class="meal-card-label">Today's Breakfast</div>
-          <div class="meal-card-name">Ragi Idli with Coconut Chutney</div>
+          <div class="meal-card-label">This Week's Breakfast Prep</div>
+          <div class="meal-card-name">Ragi Idli Kit with Coconut Chutney Base</div>
         </div>
         <span class="meal-card-badge">PCOD Safe ✓</span>
       </div>
@@ -987,8 +985,8 @@ footer a:hover { color: var(--green-mid); }
     <div class="meal-preview-card reveal reveal-d2">
       <div class="meal-card-top">
         <div>
-          <div class="meal-card-label">Today's Lunch</div>
-          <div class="meal-card-name">Methi Dal with Brown Rice & Salad</div>
+          <div class="meal-card-label">This Week's Lunch Prep</div>
+          <div class="meal-card-name">Methi Dal Kit with Brown Rice & Salad Greens</div>
         </div>
         <span class="meal-card-badge">Diabetic Safe ✓</span>
       </div>
@@ -1005,8 +1003,8 @@ footer a:hover { color: var(--green-mid); }
 <!-- PROBLEM -->
 <section class="section alt-bg" id="problem">
   <div class="section-label">The Problem</div>
-  <h2 class="section-title">You got a diet plan.<br>But who cooks it?</h2>
-  <p class="section-sub">Millions of Indians managing PCOD, diabetes, and gut conditions receive the same thing from their doctor — a PDF. 78% abandon it within two weeks.</p>
+  <h2 class="section-title">You got a diet plan.<br>But who does the prep?</h2>
+  <p class="section-sub">Millions of Indians managing PCOD, diabetes, and gut conditions receive the same thing from their doctor — a PDF. 78% abandon it within two weeks because sourcing, planning and prepping compliant meals is a full-time job.</p>
 
   <div class="problem-grid">
     <div class="problem-flow-list reveal">
@@ -1014,28 +1012,28 @@ footer a:hover { color: var(--green-mid); }
         <div class="pf-icon-box">🏥</div>
         <div>
           <h4>Doctor Visit</h4>
-          <p>You're diagnosed. The doctor hands you a detailed diet plan with 20+ rules.</p>
+          <p>You're diagnosed. The doctor hands you a detailed diet plan with 20+ rules and specific food lists.</p>
         </div>
       </div>
       <div class="pf-item">
         <div class="pf-icon-box">📄</div>
         <div>
           <h4>The Generic PDF</h4>
-          <p>Two pages of food restrictions. No recipes, no meal prep, no structure for a busy life.</p>
+          <p>Two pages of food restrictions. No recipes, no pre-portioned ingredients, no structure for a busy week.</p>
         </div>
       </div>
       <div class="pf-item bad">
         <div class="pf-icon-box">😰</div>
         <div>
-          <h4>Reality Hits</h4>
-          <p>No time to cook. No compliant options when ordering out. Plan quietly abandoned.</p>
+          <h4>Prep Becomes a Burden</h4>
+          <p>Sourcing the right ingredients, calculating macros, prepping every night — it's a second job nobody signed up for.</p>
         </div>
       </div>
       <div class="pf-item bad">
         <div class="pf-icon-box">📉</div>
         <div>
           <h4>Condition Worsens</h4>
-          <p>Without daily dietary compliance, PCOD hormones or blood sugar stay uncontrolled.</p>
+          <p>Without daily dietary compliance, PCOD hormones or blood sugar stay uncontrolled. The plan quietly gets abandoned.</p>
         </div>
       </div>
     </div>
@@ -1060,29 +1058,29 @@ footer a:hover { color: var(--green-mid); }
 <!-- HOW IT WORKS -->
 <section class="section" id="how-it-works">
   <div class="section-label">How It Works</div>
-  <h2 class="section-title">From prescription to<br>your doorstep.</h2>
-  <p class="section-sub">We take your dietitian's plan, translate it into delicious daily meals, and deliver them fresh — so you just open and eat.</p>
+  <h2 class="section-title">From prescription to<br>your prep box.</h2>
+  <p class="section-sub">We take your dietitian's plan, translate it into a weekly meal prep kit with pre-portioned ingredients and step-by-step recipe cards — so you cook in under 20 minutes, every time.</p>
 
   <div class="steps-grid">
     <div class="step-item reveal">
       <div class="step-num">1</div>
       <h4>Share Your Condition</h4>
-      <p>Tell us your diagnosis and any dietary preferences. Upload your doctor's diet plan if you have one.</p>
+      <p>Tell us your diagnosis and dietary preferences. Upload your doctor's diet plan if you have one.</p>
     </div>
     <div class="step-item reveal reveal-d1">
       <div class="step-num">2</div>
-      <h4>Dietitian Reviews</h4>
-      <p>Our clinical dietitians personalise a weekly meal plan matched to your exact condition and macros.</p>
+      <h4>Dietitian Designs Your Kit</h4>
+      <p>Our clinical dietitians build a weekly meal prep plan matched to your exact condition and macro targets.</p>
     </div>
     <div class="step-item reveal reveal-d2">
       <div class="step-num">3</div>
-      <h4>Chef-Cooked Meals</h4>
-      <p>Hygienic, fresh meals prepared daily in our kitchen with 100% verified ingredients — zero guesswork.</p>
+      <h4>Pre-Portioned Kit Delivered</h4>
+      <p>Fresh, pre-washed, pre-measured ingredients arrive weekly with colour-coded recipe cards and macro labels.</p>
     </div>
     <div class="step-item reveal reveal-d3">
       <div class="step-num">4</div>
-      <h4>Daily Delivery</h4>
-      <p>Meals delivered to your door each morning, packaged with full macro labels. Just eat and feel better.</p>
+      <h4>Cook in Under 20 Minutes</h4>
+      <p>Follow simple step-by-step instructions. No guesswork, no macro counting — just cook, eat, and feel better.</p>
     </div>
   </div>
 </section>
@@ -1090,47 +1088,47 @@ footer a:hover { color: var(--green-mid); }
 <!-- PLANS -->
 <section class="section alt-bg" id="plans">
   <div class="section-label">Meal Plans</div>
-  <h2 class="section-title">Choose your plan.</h2>
-  <p class="section-sub">All plans include personalised meal design by our clinical dietitians, fresh daily delivery, and condition-specific nutrition tracking.</p>
+  <h2 class="section-title">Choose your prep plan.</h2>
+  <p class="section-sub">All plans include pre-portioned ingredient kits designed by clinical dietitians, weekly delivery, and condition-specific recipe cards with macro tracking.</p>
 
   <div class="plans-grid">
     <div class="plan-card reveal">
       <div class="plan-icon">🥗</div>
-      <div class="plan-name">Standard</div>
-      <div class="plan-target">1 meal/day · Lunch only</div>
+      <div class="plan-name">Standard Kit</div>
+      <div class="plan-target">1 meal/day prep · Lunch kit only</div>
       <div class="plan-price">
         <span class="currency">₹</span>
-        <span class="amount">3,500</span>
+        <span class="amount">3500</span>
         <span class="period">/month</span>
       </div>
-      <div class="plan-per-meal">≈ ₹117 per meal</div>
+      <div class="plan-per-meal">≈ ₹117 per meal prep</div>
       <ul class="plan-features">
-        <li>1 meal daily (lunch)</li>
-        <li>Condition-specific recipes</li>
+        <li>Weekly lunch prep kit (5 days)</li>
+        <li>Pre-portioned, pre-washed ingredients</li>
+        <li>Condition-specific recipe cards</li>
+        <li>Macro labels per serving</li>
         <li>Weekly dietitian review</li>
-        <li>Macro tracking labels</li>
-        <li>Freshly cooked, same day</li>
       </ul>
       <button class="btn-plan" onclick="addPlanToCart('Essentials', 3500)">Add to Cart</button>
     </div>
 
     <div class="plan-card featured reveal reveal-d1">
       <div class="plan-icon">🍱</div>
-      <div class="plan-name">Premium</div>
-      <div class="plan-target">3 meals/day · Most recommended</div>
+      <div class="plan-name">Premium Kit</div>
+      <div class="plan-target">3 meals/day kit · Most recommended</div>
       <div class="plan-price">
         <span class="currency">₹</span>
         <span class="amount">4,999</span>
         <span class="period">/month</span>
       </div>
-      <div class="plan-per-meal">≈ ₹167 per meal · Best value</div>
+      <div class="plan-per-meal">≈ ₹167 per meal prep · Best value</div>
       <ul class="plan-features">
-        <li>3 meals daily (B + L + D)</li>
+        <li>Full weekly kit (B + L + D, 5 days)</li>
+        <li>Pre-portioned macro-accurate ingredients</li>
+        <li>Colour-coded recipe cards per meal</li>
         <li>Personalised macro targets</li>
-        <li>Dietitian consultation monthly</li>
+        <li>Monthly dietitian consultation</li>
         <li>Weekly progress check-in</li>
-        <li>Condition monitoring report</li>
-        <li>Priority delivery slot</li>
       </ul>
       <button class="btn-plan" onclick="addPlanToCart('Full Day', 4999)">Add to Cart</button>
     </div>
@@ -1143,12 +1141,12 @@ footer a:hover { color: var(--green-mid); }
 
 <!-- MENU -->
 <section class="section" id="menu">
-  <div class="section-label">Sample Menu</div>
-  <h2 class="section-title">What's on your plate.</h2>
-  <p class="section-sub">Every meal is crafted by clinical dietitians, cooked fresh daily, and designed to taste as good as it heals.</p>
+  <div class="section-label">Sample Prep Kits</div>
+  <h2 class="section-title">What's in your kit this week.</h2>
+  <p class="section-sub">Every kit comes with pre-portioned, pre-washed ingredients, a condition-specific recipe card, and full macro breakdowns — ready to cook in under 20 minutes.</p>
 
   <div class="menu-tabs">
-    <button class="menu-tab active" onclick="filterMenu('all', this)">All Meals</button>
+    <button class="menu-tab active" onclick="filterMenu('all', this)">All Kits</button>
     <button class="menu-tab" onclick="filterMenu('pcod', this)">PCOD</button>
     <button class="menu-tab" onclick="filterMenu('diabetes', this)">Diabetes</button>
     <button class="menu-tab" onclick="filterMenu('gut', this)">Gut Health</button>
@@ -1162,12 +1160,12 @@ footer a:hover { color: var(--green-mid); }
 <!-- CURRENT PLAN DASHBOARD -->
 <div class="dashboard-section" id="my-plan">
   <div class="section-label">My Plan</div>
-  <h2 class="section-title" style="color:white">Your plan, at a glance.</h2>
-  <p class="section-sub">Track your deliveries, review your macros, and manage your subscription — all in one place.</p>
+  <h2 class="section-title" style="color:white">Your prep schedule, at a glance.</h2>
+  <p class="section-sub">Track your weekly kit deliveries, monitor your macro targets, and manage your subscription — all in one place.</p>
 
   <div class="dashboard-card reveal">
     <div class="dash-header">
-      <h3>Full Day Plan — Week 3</h3>
+      <h3>Full Week Prep Kit — Week 3</h3>
       <span class="dash-badge">Active</span>
     </div>
 
@@ -1184,15 +1182,15 @@ footer a:hover { color: var(--green-mid); }
     <div class="dash-stats">
       <div class="dash-stat">
         <div class="ds-val">21</div>
-        <div class="ds-label">Days Active</div>
+        <div class="ds-label">Days Prepped</div>
       </div>
       <div class="dash-stat">
         <div class="ds-val">4.3/5</div>
-        <div class="ds-label">Avg. Rating</div>
+        <div class="ds-label">Avg. Kit Rating</div>
       </div>
       <div class="dash-stat">
         <div class="ds-val">63</div>
-        <div class="ds-label">Meals Delivered</div>
+        <div class="ds-label">Meals Prepped</div>
       </div>
       <div class="dash-stat">
         <div class="ds-val">8</div>
@@ -1202,13 +1200,13 @@ footer a:hover { color: var(--green-mid); }
 
     <div class="next-delivery">
       <div class="nd-left">
-        <div class="nd-icon">🚴</div>
+        <div class="nd-icon">📦</div>
         <div class="nd-info">
-          <h4>Today's delivery — en route</h4>
-          <p>Methi Thepla · Moong Dal · Quinoa Pulao · Est. arrival 12:30 PM</p>
+          <h4>This week's kit — dispatched</h4>
+          <p>Methi Thepla Kit · Moong Dal Prep · Quinoa Pulao Kit · Est. arrival Friday 10 AM</p>
         </div>
       </div>
-      <button class="btn-modify" onclick="showToast('Modification window opens 24hrs before delivery.')">Modify Order</button>
+      <button class="btn-modify" onclick="showToast('Kit modifications open until Tuesday 11:59 PM before dispatch.')">Modify Kit</button>
     </div>
   </div>
 </div>
@@ -1217,12 +1215,12 @@ footer a:hover { color: var(--green-mid); }
 <section class="section alt-bg">
   <div class="section-label">What People Are Saying</div>
   <h2 class="section-title">Real results, real people.</h2>
-  <p class="section-sub">Working professionals managing chronic conditions who finally stopped fighting their own diet plan.</p>
+  <p class="section-sub">Working professionals managing chronic conditions who finally made their doctor's diet plan a sustainable weekly habit.</p>
 
   <div class="testimonial-grid">
     <div class="testimonial-card reveal">
       <div class="tcard-stars">★★★★★</div>
-      <p class="tcard-text">"I've had PCOD for 6 years. Every dietitian gave me the same boring chart. NourishRx is the first time I've actually stuck to a diet plan — because I don't have to cook it."</p>
+      <p class="tcard-text">"I've had PCOD for 6 years. Every dietitian gave me the same boring chart. NourishRx is the first time I've stuck to a diet — the kit shows up, ingredients are prepped, I just cook. Takes 15 minutes."</p>
       <div class="tcard-user">
         <div class="tcard-avatar">PS</div>
         <div>
@@ -1233,7 +1231,7 @@ footer a:hover { color: var(--green-mid); }
     </div>
     <div class="testimonial-card reveal reveal-d1">
       <div class="tcard-stars">★★★★★</div>
-      <p class="tcard-text">"My HbA1c dropped from 7.8 to 6.4 in 3 months. My doctor was shocked. I just told him I finally have food that matches my prescription, delivered every day."</p>
+      <p class="tcard-text">"My HbA1c dropped from 7.8 to 6.4 in 3 months. My doctor was shocked. I told him I get a weekly prep kit — every ingredient measured, every recipe on a card. I just cook it."</p>
       <div class="tcard-user">
         <div class="tcard-avatar">RK</div>
         <div>
@@ -1244,7 +1242,7 @@ footer a:hover { color: var(--green-mid); }
     </div>
     <div class="testimonial-card reveal reveal-d2">
       <div class="tcard-stars">★★★★☆</div>
-      <p class="tcard-text">"As a software engineer working long hours, I can't cook therapeutic meals. NourishRx solved that completely. The methi dal and ragi recipes are genuinely delicious."</p>
+      <p class="tcard-text">"As a software engineer working long hours, meal prepping felt impossible. With NourishRx, my Sunday kit arrives, I batch-cook in an hour, and I'm set for the week. The methi dal kit is genuinely delicious."</p>
       <div class="tcard-user">
         <div class="tcard-avatar">AM</div>
         <div>
@@ -1264,28 +1262,28 @@ footer a:hover { color: var(--green-mid); }
   <div class="about-grid">
     <div>
       <p class="section-sub">We are a team of 7 co-founders — dietitians, technologists, and health professionals — who watched too many people abandon their doctor's advice not because they didn't care, but because the food system failed them.</p>
-      <p style="color:var(--slate-mid);font-size:0.9rem;line-height:1.75;margin-bottom:2rem">NourishRx was born in NCR in 2026 to bridge the gap between clinical nutrition advice and real-world daily eating. We believe therapeutic food should be accessible, delicious, and frictionless — not a second job.</p>
+      <p style="color:var(--slate-mid);font-size:0.9rem;line-height:1.75;margin-bottom:2rem">NourishRx was born in NCR in 2026 to bridge the gap between clinical nutrition advice and real-world weekly eating. We believe therapeutic meal prep should be accessible, delicious, and frictionless — not a second job. Our kits do the sourcing, measuring, and planning so you can focus on cooking and healing.</p>
 
       <div class="about-features">
         <div class="about-feat reveal">
           <div class="about-feat-icon">👩‍⚕️</div>
           <div>
-            <h4>Clinical Dietitian Team</h4>
-            <p>Every meal plan is designed and reviewed by certified clinical dietitians with experience in metabolic conditions.</p>
+            <h4>Clinical Dietitian-Designed Kits</h4>
+            <p>Every weekly prep kit is designed and reviewed by certified clinical dietitians with expertise in metabolic conditions.</p>
           </div>
         </div>
         <div class="about-feat reveal reveal-d1">
           <div class="about-feat-icon">🧪</div>
           <div>
             <h4>Evidence-Based Nutrition</h4>
-            <p>Every recipe follows clinical nutrition protocols — not food trends. Low glycaemic index, anti-inflammatory, hormonal balance.</p>
+            <p>Every recipe card follows clinical nutrition protocols — low glycaemic index, anti-inflammatory, hormonal balance. Not food trends.</p>
           </div>
         </div>
         <div class="about-feat reveal reveal-d2">
-          <div class="about-feat-icon">🚚</div>
+          <div class="about-feat-icon">📦</div>
           <div>
-            <h4>Freshly Cooked, Daily</h4>
-            <p>No frozen meals. Every box is cooked the same day, in a FSSAI-certified kitchen with full macro transparency.</p>
+            <h4>Pre-Portioned, Fresh Ingredients</h4>
+            <p>No frozen shortcuts. Every kit is packed with fresh, FSSAI-sourced ingredients — pre-washed, pre-measured, and labelled per serving.</p>
           </div>
         </div>
       </div>
@@ -1305,7 +1303,7 @@ footer a:hover { color: var(--green-mid); }
           <div class="t-avatar">CSO</div>
         </div>
         <div class="dietitian-note">
-          🩺 Partnered with 3 NCR dietitians covering ~400 active patients — our first referral pipeline is live.
+          🩺 Partnered with 3 NCR dietitians covering ~400 active patients — kits are co-designed with their clinical guidelines.
         </div>
       </div>
     </div>
@@ -1319,37 +1317,37 @@ footer a:hover { color: var(--green-mid); }
   <div class="faq-list">
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFAQ(this)">Do I need a doctor's prescription to subscribe? <span class="faq-icon">+</span></div>
-      <div class="faq-a">No prescription needed. You simply tell us your condition during sign-up, and our dietitians design a plan based on clinical guidelines for that condition. If you have an existing diet chart from your doctor, you can share it and we'll match it exactly.</div>
+      <div class="faq-a">No prescription needed. You simply tell us your condition during sign-up, and our dietitians design a weekly prep kit based on clinical guidelines for that condition. If you have an existing diet chart from your doctor, you can share it and we'll match your kit ingredients exactly.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFAQ(this)">Where do you currently deliver? <span class="faq-icon">+</span></div>
-      <div class="faq-a">We currently deliver in Noida Sectors 18, 50, and 62, and parts of Greater Noida. We're expanding across the NCR rapidly — enter your area during sign-up and we'll notify you when we reach you.</div>
+      <div class="faq-a">We currently deliver weekly prep kits in Noida Sectors 18, 50, and 62, and parts of Greater Noida. Kits arrive once a week (Friday or Saturday) so you can prep over the weekend. We're expanding across NCR — enter your area during sign-up and we'll notify you when we reach you.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">Can I customise meals if I have allergies? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Absolutely. During onboarding you'll specify allergies, intolerances, and food dislikes. Our dietitians build these into your plan. Clinical Plus subscribers (coming soon!) can also request specific modifications via WhatsApp.</div>
+      <div class="faq-q" onclick="toggleFAQ(this)">Can I customise my kit if I have allergies? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Absolutely. During onboarding you'll specify allergies, intolerances, and food dislikes. Our dietitians build these into your weekly kit design. Premium Kit subscribers can also request specific ingredient swaps via WhatsApp before Tuesday dispatch.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFAQ(this)">Can I pause or cancel my subscription? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Yes, you can pause for up to 7 days per month (e.g., when travelling) with 24 hours' notice. Cancellations can be made anytime before your next billing cycle with no penalty.</div>
+      <div class="faq-a">Yes, you can pause for up to 2 weeks per month (e.g., when travelling) with 48 hours' notice before the weekly dispatch. Cancellations can be made anytime before your next billing cycle with no penalty.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="toggleFAQ(this)">How fresh are the meals? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Every meal is cooked on the day of delivery in our FSSAI-certified kitchen. We do not use frozen or pre-cooked meals. Packaging is tamper-proof and includes cook time, macros, and a best-by window.</div>
+      <div class="faq-q" onclick="toggleFAQ(this)">How fresh are the ingredients in the kit? <span class="faq-icon">+</span></div>
+      <div class="faq-a">All ingredients are sourced and packed on dispatch day. Produce is pre-washed, pre-portioned, and vacuum-sealed where necessary. Each kit includes a freshness window per item. Dry ingredients (dal, grains, spices) are pre-measured in labelled pouches and good for the full week.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFAQ(this)">Will I see actual health improvements? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Dietary compliance is one of the most powerful levers in managing PCOD and Type 2 Diabetes. Customers on our Full Day and Clinical Plus (coming soon!) plans who maintain consistency typically see measurable improvements in 6–12 weeks. Clinical Plus includes monthly health reports to track progress.</div>
+      <div class="faq-a">Dietary compliance is one of the most powerful levers in managing PCOD and Type 2 Diabetes. Subscribers on our Full Week Prep plan who cook and follow the recipe cards consistently typically see measurable improvements in 6–12 weeks. Macro labels and weekly check-ins help you track progress against your targets.</div>
     </div>
   </div>
 </section>
 
 <!-- CTA BANNER -->
 <section class="cta-banner">
-  <h2>Stop managing your<br><em>condition with willpower.</em></h2>
-  <p>Let us turn your doctor's advice into real food, delivered every day. Your health doesn't need a second job.</p>
+  <h2>Stop managing your<br><em>condition without a plan.</em></h2>
+  <p>Let us turn your doctor's advice into a weekly prep kit — every ingredient measured, every recipe ready. Your health doesn't need a second job.</p>
   <div class="cta-actions">
-    <button class="btn-white" onclick="openModal('signupModal')">Get My Personalised Plan</button>
+    <button class="btn-white" onclick="openModal('signupModal')">Get My Personalised Prep Kit</button>
     <a href="#plans" class="btn-outline-white">View Plans</a>
   </div>
 </section>
@@ -1358,15 +1356,15 @@ footer a:hover { color: var(--green-mid); }
 <footer>
   <div class="footer-brand">
     <span class="f-logo">🌿 NourishRx</span>
-    <p>India's first condition-specific meal delivery service for working professionals. Eat for your diagnosis, not just your appetite.</p>
+    <p>India's first condition-specific meal prep kit service for working professionals. Pre-portioned ingredients, clinical recipe cards, delivered weekly.</p>
   </div>
   <div>
     <h5>Product</h5>
     <ul>
       <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#plans">Meal Plans</a></li>
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#my-plan">My Plan</a></li>
+      <li><a href="#plans">Prep Plans</a></li>
+      <li><a href="#menu">Sample Kits</a></li>
+      <li><a href="#my-plan">My Prep Schedule</a></li>
     </ul>
   </div>
   <div>
@@ -1390,18 +1388,18 @@ footer a:hover { color: var(--green-mid); }
 </footer>
 <div class="footer-bottom">
   <span>© 2026 NourishRx. All rights reserved.</span>
-  <span>NCR Launch · Noida Sectors 18, 50, 62 · Greater Noida</span>
+  <span>NCR Launch · Weekly Kit Delivery · Noida Sectors 18, 50, 62 · Greater Noida</span>
 </div>
 
 <script>
 // ===== MENU DATA =====
 const meals = [
-  { id:1, name:'Ragi Idli with Coconut Chutney', desc:'High-fibre ragi idlis with fresh coconut chutney and sambar. Anti-inflammatory and PCOD-friendly.', emoji:'🫓', cal:280, protein:'12g', carbs:'38g', fat:'8g', tags:['all','pcod'], label:'Breakfast' },
-  { id:2, name:'Methi Dal + Brown Rice', desc:'Iron-rich fenugreek dal with low-GI brown rice. Controls blood sugar and supports hormonal balance.', emoji:'🍛', cal:420, protein:'18g', carbs:'62g', fat:'10g', tags:['all','pcod','diabetes'], label:'Lunch' },
-  { id:3, name:'Grilled Paneer Tikka Salad', desc:'High-protein paneer with mixed greens, cucumber and a tangy lemon dressing. Perfect for gut health.', emoji:'🥗', cal:310, protein:'22g', carbs:'15g', fat:'18g', tags:['all','gut'], label:'Dinner' },
-  { id:4, name:'Oats Upma with Vegetables', desc:'Soluble fibre oats with mixed vegetables — lowers LDL cholesterol and stabilises morning blood sugar.', emoji:'🥣', cal:250, protein:'9g', carbs:'40g', fat:'6g', tags:['all','diabetes'], label:'Breakfast' },
-  { id:5, name:'Bajra Roti + Palak Curry', desc:'Millet-based roti with iron and zinc-rich palak curry. Excellent for hormonal PCOD management.', emoji:'🫔', cal:380, protein:'14g', carbs:'54g', fat:'11g', tags:['all','pcod'], label:'Lunch' },
-  { id:6, name:'Moong Dal Chilla + Curd', desc:'Light, digestible moong dal pancakes with probiotic curd — ideal for gut healing and bloating relief.', emoji:'🥞', cal:290, protein:'16g', carbs:'36g', fat:'7g', tags:['all','gut'], label:'Dinner' },
+  { id:1, name:'Ragi Idli Prep Kit', desc:'Pre-measured ragi batter mix, fresh coconut chutney base, and sambar concentrate. PCOD-friendly, anti-inflammatory. Cook in 15 mins.', emoji:'🫓', cal:280, protein:'12g', carbs:'38g', fat:'8g', tags:['all','pcod'], label:'Breakfast Kit' },
+  { id:2, name:'Methi Dal + Brown Rice Kit', desc:'Iron-rich fenugreek dal pre-soaked and portioned, low-GI brown rice, and a spice sachet. Controls blood sugar. Cooks in 20 mins.', emoji:'🍛', cal:420, protein:'18g', carbs:'62g', fat:'10g', tags:['all','pcod','diabetes'], label:'Lunch Kit' },
+  { id:3, name:'Paneer Tikka Salad Prep Kit', desc:'Marinated paneer cubes, pre-washed greens, sliced cucumber, and bottled lemon dressing. High-protein, gut-friendly. Assemble in 10 mins.', emoji:'🥗', cal:310, protein:'22g', carbs:'15g', fat:'18g', tags:['all','gut'], label:'Dinner Kit' },
+  { id:4, name:'Oats Upma Prep Kit', desc:'Rolled oats, pre-cut mixed vegetables, and a seasoning sachet. Lowers LDL, stabilises blood sugar. Ready in 10 mins.', emoji:'🥣', cal:250, protein:'9g', carbs:'40g', fat:'6g', tags:['all','diabetes'], label:'Breakfast Kit' },
+  { id:5, name:'Bajra Roti + Palak Curry Kit', desc:'Pre-measured bajra flour, washed and chopped palak, and spice blend. PCOD hormonal support. Full prep in 20 mins.', emoji:'🫔', cal:380, protein:'14g', carbs:'54g', fat:'11g', tags:['all','pcod'], label:'Lunch Kit' },
+  { id:6, name:'Moong Dal Chilla Kit', desc:'Pre-soaked moong dal, batter mix, and a probiotic curd sachet. Gut-healing, bloating relief. Cook in 12 mins.', emoji:'🥞', cal:290, protein:'16g', carbs:'36g', fat:'7g', tags:['all','gut'], label:'Dinner Kit' },
 ];
 
 let cart = [];
@@ -1425,7 +1423,7 @@ function renderMenu(filter) {
             <span class="mmacro">${m.protein} <span>P</span></span>
             <span class="mmacro">${m.carbs} <span>C</span></span>
           </div>
-          <button class="btn-add-meal" onclick="addMealToCart(${m.id})" title="Add meal">+</button>
+          <button class="btn-add-meal" onclick="addMealToCart(${m.id})" title="Add kit">+</button>
         </div>
       </div>
     </div>
@@ -1448,7 +1446,7 @@ function addMealToCart(id) {
   const meal = meals.find(m => m.id === id);
   const existing = cart.find(c => c.id === id && c.type === 'meal');
   if (existing) { existing.qty++; }
-  else { cart.push({ id, type:'meal', name: meal.name, emoji: meal.emoji, price: 199, qty: 1, sub: meal.label }); }
+  else { cart.push({ id, type:'meal', name: meal.name, emoji: meal.emoji, price: 149, qty: 1, sub: meal.label }); }
   updateCartUI();
   showToast(`${meal.emoji} ${meal.name} added to cart`);
 }
@@ -1458,10 +1456,10 @@ function addPlanToCart(name, price) {
   const existing = cart.find(c => c.type === 'plan');
   if (existing) {
     existing.name = name; existing.price = price; existing.emoji = icons[name];
-    showToast(`✓ Plan updated to ${name}`);
+    showToast(`✓ Kit plan updated to ${name}`);
   } else {
-    cart.push({ id: 'plan', type:'plan', name: `${name} Plan`, emoji: icons[name], price, qty: 1, sub: '/month subscription' });
-    showToast(`✓ ${name} Plan added to cart`);
+    cart.push({ id: 'plan', type:'plan', name: `${name} Prep Plan`, emoji: icons[name], price, qty: 1, sub: '/month subscription' });
+    showToast(`✓ ${name} Prep Plan added to cart`);
   }
   updateCartUI();
   openCart();
@@ -1532,7 +1530,7 @@ function handleOrderComplete() {
   closeModal('checkoutModal');
   cart = [];
   updateCartUI();
-  showToast('🎉 Order confirmed! We\'ll call to confirm your slot.');
+  showToast('🎉 Order confirmed! We\'ll call to confirm your weekly kit dispatch slot.');
   document.getElementById('checkoutAddr').value = '';
 }
 
@@ -1549,7 +1547,7 @@ function handleSignup() {
   const condition = document.getElementById('signupCondition').value;
   if (!name || !condition) { showToast('Please fill in your name and condition.'); return; }
   closeModal('signupModal');
-  showToast(`🌿 Welcome ${name}! We'll prepare your ${condition} plan.`);
+  showToast(`🌿 Welcome ${name}! We'll prep your ${condition} kit.`);
 }
 
 // ===== FAQ =====
